@@ -1,0 +1,21 @@
+on:
+    push:
+    schedule:
+        - cron: "*/5 * * * *"
+
+jobs:
+    degree_calendar_monitoring_job:
+        runs-on: ubuntu-latest
+        name: "UNIUD CS degree calendar monitoring"
+        steps:
+            - name: Checkout
+              uses: actions/checkout@v4
+            - name: "Check for updates"
+              uses: lcian/website-change-monitor-action
+              id: check
+              with:
+                  url: "https://www.uniud.it/it/didattica/corsi/area-scientifica/ingegneria-architettura/laurea/ingegneria-gestionale/laurearsi/esame-laurea-commissione"
+                  selector: "#content-core"
+                  discord-webhook-url: "https://discord.com/api/webhooks/1288796830506946603/h4QkZa5Q9OntG1WoFMoy_lNUmyBr6L-MrtwJnGXnCS_XZMc9A6fo_W_VYDdHL-vTm1C0"
+              env:
+                  GH_TOKEN: ${{ secrets.GH_TOKEN }}

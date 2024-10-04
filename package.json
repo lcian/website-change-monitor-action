@@ -1,0 +1,37 @@
+{
+    "type": "module",
+    "name": "website-change-monitor-action",
+    "version": "1.0.0",
+    "description": "A simple GitHub Action to monitor a website for changes",
+    "keywords": [
+        "GitHub",
+        "Actions"
+    ],
+    "main": "dist/index.js",
+    "engines": {
+        "node": ">=20"
+    },
+    "scripts": {
+        "format": "prettier --write .",
+        "build": "ncc build src/index.js --out dist --source-map --license LICENSE"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/lcian/website-change-monitor-action.git"
+    },
+    "author": "Lorenzo Cian",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/lcian/website-change-monitor-action/issues"
+    },
+    "homepage": "https://github.com/lcian/website-change-monitor-action#readme",
+    "dependencies": {
+        "@actions/github": "^6.0.0",
+        "axios": "^1.7.2",
+        "cheerio": "^1.0.0-rc.12"
+    },
+    "devDependencies": {
+        "@trivago/prettier-plugin-sort-imports": "^4.3.0",
+        "@vercel/ncc": "^0.38.2"
+    }
+}
