@@ -16,3 +16,6 @@ inputs:
     slack-webhook-url:
         description: "The Slack webhook URL to send notifications to"
         required: false
+branding:
+    icon: "bell"
+    color: "blue"
